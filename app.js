@@ -7,11 +7,11 @@ require('dotenv/config');
 
 app.use(bodyParser.json());
 
-//const filmsRoute = require('./routes/films');
+const postsRoute = require('./routes/posts');
 const authRoute = require('./routes/auth');
 
-//app.use('/api/film', filmsRoute);
-app.use('/api/user', authRoute);
+app.use('/posts', postsRoute);
+app.use('/user', authRoute);
 
 mongoose.connect(process.env.DB_CONNECTOR).then(() => {
     console.log('MongoDB Connected')
